@@ -2,11 +2,8 @@
 ![BluemanAdventure](https://user-images.githubusercontent.com/88697918/170962965-ba8aa900-f737-48f9-b291-f8f050225b83.png)
 # Introduction
 - **Team name**: Legend of Bugs
-<<<<<<< Updated upstream
-- **Team members**: 
-=======
+- 
 - **Team members**:
->>>>>>> Stashed changes
     <br>
     Vinh Bao Phuc - ITITIU20127 
     <br>
@@ -26,7 +23,8 @@ Moreover, in that spare time, we rediscovered the games of our childhood and wit
 
 - **Framework**:
 # UML Diagram and Explantion
-![](..%5C..%5C..%5CDesktop%5COOP's%20ULM.png)
+![OOP's ULM](https://user-images.githubusercontent.com/88697918/172899439-9cfb8710-b84c-46d5-b53e-270ac09260f9.png)
+
 - **Explantion**:
 # Feature
 - **Completed features**:
@@ -44,16 +42,16 @@ Moreover, in that spare time, we rediscovered the games of our childhood and wit
 - 1-2 NPCs 
 - 5 monsters 
 <!-- (including a boss) -->
-<!-- - 10 questions (including an extra question with bonus items) -->
+<!-- - 10 questions (including an extra question with bonus items)-Incomplete features -->
 - 5-10 keys
 - 1 extra life (a present from answering the extra question)
-<!-- - Extra question will be covered somewhere in the map -->
+<!-- - Extra question will be covered somewhere in the map-Incomplete features -->
 
 #### City of films
 
 - 1-2 NPCs 
 - 5 monsters 
-<!-- (including 1 final boss) -->
+<!-- (including 1 final boss)-Incomplete features -->
 - 10 questions 
 - 5-10 keys
 
@@ -65,4 +63,5 @@ Moreover, in that spare time, we rediscovered the games of our childhood and wit
 - Hit the monsters, lose HP
 
 ### Screenshots
-
+    <br>
+    
