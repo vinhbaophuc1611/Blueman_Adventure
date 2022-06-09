@@ -21,7 +21,7 @@ public class GamePanel extends JPanel implements Runnable {
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeight = tileSize * maxWorldRow;
     public final int maxMap = 10;
-    public int currentMap = 1; 
+    public int currentMap = 0; 
     //FOR FULL SCREEN
     int screenWidth2 = screenWidth;
     int screenHeight2 = screenHeight;
@@ -29,7 +29,7 @@ public class GamePanel extends JPanel implements Runnable {
     public boolean fullScreenOn = false;
     Graphics2D g2;
     // FPS
-    int FPS = 60;
+    int FPS = 75;
     //SYSTEM
     public TileManager tileM = new TileManager(this);
     public KeyHandler keyH = new KeyHandler(this);
@@ -44,6 +44,7 @@ public class GamePanel extends JPanel implements Runnable {
     public Entity obj[][] = new Entity[maxMap][20];
     public Entity npc[][] = new Entity[maxMap][20];
     public Entity monster[][] = new Entity[maxMap][20];
+    public Entity chest[][] = new Entity[maxMap][20];
     public ArrayList<Entity> projectileList = new ArrayList<>();
     public ArrayList<Entity> entityList = new ArrayList<>();
     //GAME STATE
@@ -69,8 +70,8 @@ public class GamePanel extends JPanel implements Runnable {
         assetSetter.setNPC();
         assetSetter.setMonster();
         gameState = titleState;
-        tempScreen = new BufferedImage(screenWidth, screenHeight, BufferedImage.TYPE_INT_RGB);
-        g2 = (Graphics2D)tempScreen.getGraphics();
+        // tempScreen = new BufferedImage(screenWidth, screenHeight, BufferedImage.TYPE_INT_RGB);
+        // g2 = (Graphics2D)tempScreen.getGraphics();
     }
     //RETRY
     public void retry() {
@@ -128,6 +129,11 @@ public class GamePanel extends JPanel implements Runnable {
             for(int i = 0; i < npc[1].length; i++){
                 if(npc[currentMap][i] != null){
                     npc[currentMap][i].update();
+                }
+            }
+            for(int i = 0; i< chest[1].length; i++){
+                if(chest[currentMap][i] != null){
+                    chest[currentMap][i].update();
                 }
             }
             //MONSTER
@@ -193,6 +199,11 @@ public class GamePanel extends JPanel implements Runnable {
                     entityList.add(monster[currentMap][i]);
                 }
             }
+            // for(int i = 0; i < chest[1].length; i++){
+            //     if(chest[currentMap][i] != null){
+            //         entityList.add(chest[currentMap][i]);
+            //     }
+            // }
             for(int i = 0; i < projectileList.size(); i++){
                 if(projectileList.get(i) != null){
                     entityList.add(projectileList.get(i));

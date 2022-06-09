@@ -23,9 +23,8 @@ public class UI {
     public int commandNum = 0;
     public int slotCol = 0;
     public int slotRow = 0;
-
+    public boolean gameFinished = false;
     int subState = 0;
-
     double playTime ;
     DecimalFormat DF = new DecimalFormat("#0");
     private Graphics2D g2;
@@ -71,6 +70,30 @@ public class UI {
         //TIME
         playTime += (double)1/60;
         g2.drawString("Time: "+DF.format(playTime), gp.tileSize * 12, 65);
+        //GAME FINISH
+        if(gameFinished == true){
+            g2.setFont(g2.getFont().deriveFont(30F));
+            g2.setColor(Color.white);
+            String text;
+            int textLenght;
+            int x;
+            int y;
+
+            text = "You found the treasure";
+            textLenght = (int)(g2.getFontMetrics().getStringBounds(text, g2).getWidth());
+            x = gp.screenWidth/2 - textLenght/2;
+            y = gp.screenHeight/2 - (gp.tileSize * 3);
+            g2.drawString(text, x, y);
+
+            g2.setFont(g2.getFont().deriveFont(50F));
+            g2.setColor(Color.YELLOW);
+            text = "Congratulations!";
+            textLenght = (int)(g2.getFontMetrics().getStringBounds(text, g2).getWidth());
+            x = gp.screenWidth/2 - textLenght/2;
+            y = gp.screenHeight/2 + (gp.tileSize * 2);
+            g2.drawString(text, x, y);
+            gp.gameThread = null;
+        }
         //DISPLAY MESSAGE
         if(messageOn == true){
             g2.setFont(g2.getFont().deriveFont(30F));
@@ -81,6 +104,7 @@ public class UI {
                 messageOn = false;
             }
         }
+        
         //TITLE SCREEN
         if(gp.gameState == gp.titleState){
             drawTitlesScreen();
@@ -143,7 +167,6 @@ public class UI {
         }
     }
     public void drawTitlesScreen(){
-
         //BACKGROUND_IMAGE
         g2.drawImage(backgroundImage, 0, 0, gp.screenWidth, gp.screenHeight, null);
         String text = "";
@@ -166,26 +189,18 @@ public class UI {
             g2.drawString(">", x - gp.tileSize, y);
         }
 
-        text = "LOAD GAME";
+        text = "QUIT";
         x = getXforCenteredText(text);
         y += gp.tileSize * (3.5 / 2.1);
         g2.drawString(text, x, y);
         if(commandNum == 1){
             g2.drawString(">", x - gp.tileSize, y);
         }
-
-        text = "QUIT";
-        x = getXforCenteredText(text);
-        y += gp.tileSize * (3.5 / 2.1);
-        g2.drawString(text, x, y);
-        if(commandNum == 2){
-            g2.drawString(">", x - gp.tileSize, y);
-        }
     }
     public void drawPauseScreen(){
 
         String text = "PAUSE";
-        int x = getXforCenteredText(text);
+        int x = getXforCenteredTextforEndGame(text);
         int y = gp.screenHeight/2;
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 42F));
         g2.drawString(text, x - gp.tileSize, y);
@@ -378,56 +393,11 @@ public class UI {
 
     public void optionTop(int frameX, int frameY) {
         int textX, textY;
-
         //TITLE
         String text = "Option";
         textX = getXforCenteredText(text);
         textY = frameY + gp.tileSize;
         g2.drawString(text, textX, textY);
-
-        //FULL SCREEN SWITCH (ON/OFF)
-        textX = frameX + gp.tileSize;
-        textY += gp.tileSize*2;
-        g2.drawString("Full screen", textX, textY);
-        if(commandNum == 0) {
-            g2.drawString(">", textX-25, textY);
-            if(gp.keyH.enterPressed == true) {
-                if(gp.fullScreenOn == false) {
-                    gp.fullScreenOn = true;
-                }
-                else if(gp.fullScreenOn == false) {
-                    gp.fullScreenOn = true;
-                }
-            }
-        }
-
-        //SAVE GAME
-        // textY += gp.tileSize;
-        // g2.drawString("Save game", textX, textY);
-        // if(commandNum == 2) {
-        //     g2.drawString(">", textX-25, textY);
-        // }
-
-        //CONTROL
-        // textY += gp.tileSize;
-        // g2.drawString("Control", textX, textY);
-        // if(commandNum == 3) {
-        //     g2.drawString(">", textX-25, textY);
-        // }
-
-        //END GAME
-        // textY += gp.tileSize;
-        // g2.drawString("End game", textX, textY);
-        // if(commandNum == 4) {
-        //     g2.drawString(">", textX-25, textY);
-        // }
-
-        //BACK
-        // textY += gp.tileSize;
-        // g2.drawString("Back", textX, textY);
-        // if(commandNum == 5) {
-        //     g2.drawString(">", textX-25, textY);
-        // }
 
         //FULL SCREEN CHECK BOX
         textX = frameX + (int)(gp.tileSize*4.5);
@@ -437,9 +407,7 @@ public class UI {
         if(gp.fullScreenOn == true) {
             g2.fillRect(textX, textY, 24, 24);
         }
-
         gp.config.saveConfig();
-
     }
 
     public int getItemToSLot(){
