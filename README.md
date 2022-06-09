@@ -3,6 +3,7 @@
 # Introduction
 - **Team name**: Legend of Bugs
 - **Team members**: 
+    <br>
     Vinh Bao Phuc - ITITIU20127 
     <br>
     Tran Minh Huy - ITITIU20219
@@ -49,6 +50,11 @@ Moreover, in that spare time, we rediscovered the games of our childhood and wit
 - 5 monsters (including 1 final boss)
 - 10 questions 
 - 5-10 keys
+
+### How to play 
+- To attack the monsters, press <code>**f**</code>.
+- To open an inventory, press <code>**c**</code>.
+- To open the door, need the key appeared when **killed the monster**.
 
 ### Screenshots
 
