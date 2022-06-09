@@ -62,6 +62,4 @@ Moreover, in that spare time, we rediscovered the games of our childhood and wit
 - To open the door, need the key appeared when **killed the monster**.
 - Hit the monsters, lose HP
 
-### Screenshots
-    <br>
-    
+### Screenshots   
