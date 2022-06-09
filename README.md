@@ -56,7 +56,7 @@ Moreover, in that spare time, we rediscovered the games of our childhood and wit
 - To faster attacks, stand near the monsters.
 - To open an inventory, press <code>**c**</code>.
 - To open the door, need the key appeared when **killed the monster**.
-- 
+- Hit the monsters, lose HP
 
 ### Screenshots
 
