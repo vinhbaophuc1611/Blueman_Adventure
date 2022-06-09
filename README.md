@@ -2,7 +2,7 @@
 ![BluemanAdventure](https://user-images.githubusercontent.com/88697918/170962965-ba8aa900-f737-48f9-b291-f8f050225b83.png)
 # Introduction
 - **Team name**: Legend of Bugs
-- 
+
 - **Team members**:
     <br>
     Vinh Bao Phuc - ITITIU20127 
@@ -62,6 +62,4 @@ Moreover, in that spare time, we rediscovered the games of our childhood and wit
 - To open the door, need the key appeared when **killed the monster**.
 - Hit the monsters, lose HP
 
-### Screenshots
-    <br>
-    
+### Screenshots   
